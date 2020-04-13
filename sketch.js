@@ -5,7 +5,7 @@ var trex, trex_running, trex_collided;
 var ground, invisibleGround, groundImage;
 var cg;
 var obsg;
-var count;
+var count = 0;
 function preload(){
   trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
   trex_collided = loadAnimation("trex_collided.png");
@@ -55,7 +55,7 @@ function draw() {
      go.visible = false
      reset.visible = false
       ground.velocityX = -4;
-  count = count + Math.round(getFrameRate()/60)
+  count = Math.round(count + 0.5)
 
   if(keyDown("space") && trex.collide(invisibleGround)) {
     trex.velocityY = -10;
